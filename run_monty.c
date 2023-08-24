@@ -1,18 +1,19 @@
 #include "monty.h"
 
+stack_t *top = NULL;
 /**
  * main - Entry point for Monty interpreter execution
  * @argc: Number of command-line arguments
  * @argv: Array of command-line arguments
  * Return: Exit status
  */
-stack_t *top = NULL;
 int main(int argc, char *argv[])
 {
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pop", pop},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 

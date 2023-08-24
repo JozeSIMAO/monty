@@ -39,6 +39,7 @@ extern stack_t *top;
 
 void push(stack_t **stack, unsigned int value);
 void pop(stack_t **stack, unsigned int line_num);
+void pint(stack_t **stack, unsigned int line_num);
 void pall(stack_t **stack, unsigned int line_num);
 void process_instruction(instruction_t *instructs, char *opcode,
 		int argument, unsigned int line_num);
