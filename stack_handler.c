@@ -39,7 +39,7 @@ int init_stack(stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 
-	s->n = STACK;
+	s->n = 1;
 	s->prev = NULL;
 	s->next = NULL;
 
