@@ -1,30 +1,32 @@
 #include "monty.h"
-
 /**
- * swap - Swaps the top two elements of the stack
- * @stack: Pointer to the top of the stack
- * @line_num: Line number in the Monty code file
+ * monty_swap - Swaps the top two value elements of a stack_t linked list.
+ * @stack: A pointer to the top mode node of a stack_t linked list.
+ * @line_num: The current working line number of a Monty bytecodes file.
  */
 void swap(stack_t **stack, unsigned int line_num)
 {
-	stack_t *first, *second;
+    stack_t *temp;
 
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
-		exit(EXIT_FAILURE);
-	}
 
-	first = *stack;
-	second = (*stack)->next;
+    if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+    {
+        fprintf(stderr, "L%u: can't swap, stack too short\n",line_num);
+        exit(EXIT_FAILURE);
+    }
 
-	first->prev = second;
-	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-	second->prev = NULL;
-	second->next = first;
 
-	*stack = second;
+    temp = (*stack)->next->next;
+    (*stack)->next->next = temp->next;
+    (*stack)->next->prev = temp;
+
+    if (temp->next)
+    {
+        temp->next->prev = (*stack)->next;
+    }
+
+    temp->next = (*stack)->next;
+    temp->prev = *stack;
+
+    (*stack)->next = temp;
 }
-
