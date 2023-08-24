@@ -2,11 +2,10 @@
 char **op_c = NULL;
 
 /**
- * main - Main function.
- * @argc: Number of command line arguments.
- * @argv: Pointer to an array of char pointers to arguments.
- *
- * Return: EXIT_SUCCESS or EXIT_FAILURE.
+ * main - Main function
+ * @argc: Number of command line arguments
+ * @argv: Pointer to an array of char pointers to arguments
+ * Return: 1 or 0
  */
 int main(int argc, char **argv)
 {

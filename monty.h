@@ -1,14 +1,11 @@
-#ifndef __MONTY_H__
-#define __MONTY_H__
-
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
-#define STACK 0
-#define QUEUE 1
 #define DELIMS " \n\t\a\b"
 
 extern char **op_c;
@@ -49,7 +46,7 @@ void free_stack(stack_t **stack);
 int init_stack(stack_t **stack);
 void free_tokens(void);
 unsigned int token_arr_len(void);
-int run_monty(FILE *script_fd);
+int run_monty(FILE *file);
 void set_op_tok_error(int error_code);
 
 void push(stack_t **stack, unsigned int line_num);
