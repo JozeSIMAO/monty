@@ -8,7 +8,7 @@
 void process_file(const char *filename, instruction_t *instructs)
 {
 	FILE *file = fopen(filename, "r");
-	char line[256], *opcode, *token;
+	char line[256], *token;
 	unsigned int line_num = 0;
 	int argument;
 
@@ -21,14 +21,17 @@ void process_file(const char *filename, instruction_t *instructs)
 	while (fgets(line, sizeof(line), file))
 	{
 		line_num++;
-		opcode = strtok(line, " \t$\n");
+		token = strtok(line, " \t$\n");
 
-		if (opcode != NULL)
+		if (token != NULL)
 		{
+			op_c = token;
+
 			token = strtok(NULL, " \t$\n");
 			argument = token ? atoi(token) : 0;
-			process_instruction(instructs, opcode, argument, line_num);
+			process_instruction(instructs, *op_c, argument, line_num);
 		}
 	}
+
 	fclose(file);
 }

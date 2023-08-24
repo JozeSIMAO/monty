@@ -6,7 +6,6 @@
  * @argv: Array of command-line arguments
  * Return: Exit status
  */
-char **op_c;
 stack_t *top = NULL;
 int main(int argc, char *argv[])
 {
