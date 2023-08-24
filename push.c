@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * push - pushes a new element onto the stack
- * @stack: is double pointer to stack
- * @value: is data value of new element
+ * push - pushes an element onto the stack
+ * @stack: pointer to the top of the stack
+ * @value: value to push
  * Return: void
  */
 void push(stack_t **stack, unsigned int value)
@@ -12,16 +12,20 @@ void push(stack_t **stack, unsigned int value)
 
 	if (new_node == NULL)
 	{
-		perror("Error allocating memory");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
 	new_node->n = value;
-	new_node->next = *stack;
 	new_node->prev = NULL;
 
-	if (*stack != NULL)
+	if (*stack == NULL)
 	{
+		new_node->next = NULL;
+	}
+	else
+	{
+		new_node->next = *stack;
 		(*stack)->prev = new_node;
 	}
 

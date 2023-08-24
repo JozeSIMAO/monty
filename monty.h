@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/* GLOBAL OPCODE TOKENS */
+extern char **op_c;
 
-extern char **opcode;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -35,6 +36,8 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+extern stack_t *top;
 
 void push(stack_t **stack, unsigned int value);
 void pop(stack_t **stack, unsigned int line_num);
